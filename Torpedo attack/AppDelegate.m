@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Constants.h"
 
 @interface AppDelegate ()
 
@@ -16,29 +17,56 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:SOUNDBACKGROUND_KEY]){
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"ON" forKey:SOUNDBACKGROUND_KEY];
+        
+    }
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:SOUNDEFFECTS_KEY]){
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"ON" forKey:SOUNDEFFECTS_KEY];
+        
+    }
+    
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:HARD_KEY]){
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"OFF" forKey:HARD_KEY];
+        
+    }
+    
+    
+        
+    //49,199,499,999,1999
+    //0,49,99,149,199,299,399,499,749,999,1999
+    
+    //test
+   //  [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:DESTROYED_KEY];
+    
+    
+    //test No launch
+  //  [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"beenLaunched"];
+  
+    
+    
+    if(![[NSUserDefaults standardUserDefaults] boolForKey:@"beenLaunched"]) {
+        
+        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:DESTROYED_KEY];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"beenLaunched"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }
+
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     return YES;
 }
 
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-}
-
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-}
-
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-}
-
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
 
 
 @end

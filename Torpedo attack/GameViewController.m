@@ -14,18 +14,17 @@
     [super viewDidLoad];
 
     // Load the SKScene from 'GameScene.sks'
-    GameScene *scene = (GameScene *)[SKScene nodeWithFileNamed:@"GameScene"];
-    
+    GameScene *scene = (GameScene *)[SKScene nodeWithFileNamed:@"MainMenuScene"];
     // Set the scale mode to scale to fit the window
     scene.scaleMode = SKSceneScaleModeAspectFill;
-    
     SKView *skView = (SKView *)self.view;
-    
     // Present the scene
     [skView presentScene:scene];
     
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
+//    skView.showsFPS = YES;
+ //   skView.showsNodeCount = YES;
+    
+  //  skView.showsPhysics = YES;
 }
 
 - (BOOL)shouldAutorotate {
@@ -43,5 +42,9 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
+
+
+
 
 @end

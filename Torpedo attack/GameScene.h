@@ -6,7 +6,9 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import "SoundPlayer.h"
 
-@interface GameScene : SKScene
+@interface GameScene : SKScene <AVAudioPlayerDelegate>
 
 @end
