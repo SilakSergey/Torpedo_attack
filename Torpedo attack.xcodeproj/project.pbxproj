@@ -717,6 +717,8 @@
 		424FC23B25B0B5820033D1CC /* Torpedo attack */ = {
 			isa = PBXGroup;
 			children = (
+				425D41AD25B48E8400B814B7 /* Constants.h */,
+				42B3316A26446D0000F9109A /* GameSceneClasses */,
 				42FDCF1125C0E528002A9AD3 /* Background */,
 				424B82D625B87EBF00B63C3D /* Fonts */,
 				424FC27E25B0BAD30033D1CC /* SpriteImage */,
@@ -725,7 +727,8 @@
 				4288A13825C189580052761A /* Ranks */,
 				424B846025BC27B900B63C3D /* SoundPlayer.h */,
 				424B846125BC27B900B63C3D /* SoundPlayer.m */,
-				425D41AD25B48E8400B814B7 /* Constants.h */,
+				42B3319B2645523600F9109A /* CurrentOrientation.h */,
+				42B3319C2645523600F9109A /* CurrentOrientation.m */,
 				424FC23C25B0B5820033D1CC /* AppDelegate.h */,
 				424FC23D25B0B5820033D1CC /* AppDelegate.m */,
 				424FC24125B0B5820033D1CC /* Actions.sks */,
@@ -742,7 +745,6 @@
 				424B824B25B8194300B63C3D /* AboutScene.m */,
 				424B825025B8195000B63C3D /* AboutScene.sks */,
 				424FC23F25B0B5820033D1CC /* GameScene.sks */,
-				42B3316A26446D0000F9109A /* GameSceneClasses */,
 				424FC24325B0B5820033D1CC /* GameScene.h */,
 				424FC24425B0B5820033D1CC /* GameScene.m */,
 				4285A0E425C1E6AC001D64DB /* InformationScene.h */,
@@ -900,8 +902,6 @@
 		42B3316A26446D0000F9109A /* GameSceneClasses */ = {
 			isa = PBXGroup;
 			children = (
-				42B3319B2645523600F9109A /* CurrentOrientation.h */,
-				42B3319C2645523600F9109A /* CurrentOrientation.m */,
 				42B3317426447A9000F9109A /* SpritesClasses.h */,
 				42B3317526447A9000F9109A /* SpritesClasses.m */,
 			);

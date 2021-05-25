@@ -16,7 +16,6 @@
     NSString *orientation=PORTRAIT;
     UIDeviceOrientation interfaceOrientation = [[UIDevice currentDevice] orientation];
 
-
     switch(interfaceOrientation)
     {
         case UIDeviceOrientationPortrait:
