@@ -247,16 +247,8 @@
 
 -(void)CreateMenuButtonSprite: (NSString *)orientation{
    
-    SKTexture *Texture = [SKTexture textureWithImageNamed:@"buttonMenu"];
-    
-    if ([[[NSLocale currentLocale] localeIdentifier]  containsString: @"ru_RU"]){
-        
-        Texture = [SKTexture textureWithImageNamed:@"buttonMenu_RU"];
-    }
-    
+    SKTexture *Texture = [SKTexture textureWithImageNamed:NSLocalizedString(@"buttonMenu", @"Menu button on GameScene")];
     menuButtonSprite = [SKSpriteNode spriteNodeWithTexture:Texture];
-   
-    
     menuButtonSprite.anchorPoint = CGPointMake(0, 0); //задаем начальную точку.
     menuButtonSprite.name = @"menuButtonSprite";// задаем имя.
     menuButtonSprite.scene.scaleMode = SKSceneScaleModeAspectFill;
