@@ -290,14 +290,7 @@
 
 -(void)CreateStrikePointerSprite: (NSString *)orientation{
     
-    SKTexture *Texture = [SKTexture textureWithImageNamed:@"strikePointer"];
-    
-    if ([[[NSLocale currentLocale] localeIdentifier]  containsString: @"ru_RU"]){
-        
-        Texture = [SKTexture textureWithImageNamed:@"strikePointer_RU"];
-        
-    }
-    
+    SKTexture *Texture = [SKTexture textureWithImageNamed:NSLocalizedString(@"strikePointer", @"Strike count on GameScene")];
     strikePointerSprite = [SKSpriteNode spriteNodeWithTexture:Texture];
     strikePointerSprite.anchorPoint = CGPointMake(0, 0); //задаем начальную точку.
     strikePointerSprite.name = @"strikePointerSprite";// задаем имя.
@@ -343,14 +336,7 @@
 
 -(void)CreateDestroyPointerSprite: (NSString *)orientation{
 
-    SKTexture *Texture = [SKTexture textureWithImageNamed:@"destroyPointer"];
-    
-    if ([[[NSLocale currentLocale] localeIdentifier]  containsString: @"ru_RU"]){
-        
-        Texture = [SKTexture textureWithImageNamed:@"destroyPointer_RU"];
-        
-    }
-    
+    SKTexture *Texture = [SKTexture textureWithImageNamed:NSLocalizedString(@"destroyPointer", @"Destroyed ships on GameScene") ];
     //Создаем наш SKSpriteNode и инициализируем его. В качестве параметра передаем объект типа SKTexture, который мы создали выше.
     destroyPointerSprite = [SKSpriteNode spriteNodeWithTexture:Texture];
     destroyPointerSprite.anchorPoint = CGPointMake(0.5, 0.5); //задаем начальную точку.

@@ -18,7 +18,8 @@
 "Order"="Приказ";
 "Hard mode"="Сложный режим";
 
-
+"destroyPointer"="destroyPointer_RU";
+"strikePointer"="strikePointer_RU";
 "buttonMenu"="buttonMenu_RU";
 "buttonPlay"="buttonPlay_RU";
 "buttonSettings" = "buttonSettings_RU";
