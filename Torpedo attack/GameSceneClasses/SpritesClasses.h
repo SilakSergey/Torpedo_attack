@@ -7,7 +7,7 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-
+/*Интерфейс инициализации и создания неба*/
 @interface SpritesClasses : SKSpriteNode
 @property (strong, nonatomic, readonly) SKSpriteNode *BackgroundSprite;
 
@@ -16,7 +16,7 @@
 
 @end
 
-//-------NEW INTERFACE------------//
+/*Интерфейс инициализации и создания моря (с анмацией)*/
 @interface SpritesClassesWater : SKSpriteNode
 @property (strong, nonatomic, readonly) SKSpriteNode *BackgroundWaterSprite;
 
@@ -25,7 +25,7 @@
 
 @end
 
-//-------NEW INTERFACE------------//
+/*Интерфейс инициализации и создания скалы слева*/
 @interface SpritesClassesRockLeft : SKSpriteNode
 @property (strong, nonatomic, readonly) SKSpriteNode *RockSpriteLeft;
 
@@ -35,7 +35,7 @@
 @end
 
 
-//-------NEW INTERFACE------------//
+/*Интерфейс инициализации и создания скалы справа*/
 @interface SpritesClassesRockRight : SKSpriteNode
 @property (strong, nonatomic, readonly) SKSpriteNode *RockSpriteRight;
 
@@ -45,7 +45,7 @@
 @end
 
 
-//-------NEW INTERFACE------------//
+/*Интерфейс инициализации и создания монокля*/
 @interface SpritesClassesBinokleSprite : SKSpriteNode
 @property (strong, nonatomic, readonly) SKSpriteNode *binokleSprite;
 @property (strong, nonatomic, readonly) NSString *binokleName;
@@ -56,7 +56,7 @@
 @end
 
 
-//-------NEW INTERFACE------------//
+/*Интерфейс инициализации и создания кнопки Menu внутри сцены игры*/
 @interface SpritesClassesMenuButtonSprite : SKSpriteNode
 @property (strong, nonatomic, readonly) SKSpriteNode *menuButtonSprite;
 
@@ -66,7 +66,7 @@
 
 @end
 
-//-------NEW INTERFACE------------//
+/*Интерфейс инициализации и создания подсказки к Таймеру подрыва торпеды*/
 @interface SpritesClassesStrikePointerSprite : SKSpriteNode
 @property (strong, nonatomic, readonly) SKSpriteNode *strikePointerSprite;
 
@@ -76,7 +76,7 @@
 
 @end
 
-//-------NEW INTERFACE------------//
+/*Интерфейс инициализации и создания подсказки к количеству потопленных кораблей*/
 @interface SpritesClassesDestroyPointerSprite : SKSpriteNode
 @property (strong, nonatomic, readonly) SKSpriteNode *destroyPointerSprite;
 
@@ -87,7 +87,7 @@
 @end
 
 
-//-------NEW INTERFACE------------//
+/*Интерфейс инициализации и создания подсказки к позвожности двигать прицел*/
 @interface SpritesClassesMovePointerSprite : SKSpriteNode
 @property (strong, nonatomic, readonly) SKSpriteNode *movePointerSprite;
 
@@ -99,7 +99,7 @@
 
 
 
-//-------NEW INTERFACE------------//
+/*Интерфейс инициализации и создания метки с количеством потопленных кораблей*/
 @interface SpritesClassesLabelScoresPhysics : SKLabelNode
 @property (strong, nonatomic, readonly) SKLabelNode *LabelScoresPhysics;
 
@@ -111,7 +111,7 @@
 
 
 
-//-------NEW INTERFACE------------//
+/*Интерфейс инициализации и создания метки с псевдо азимутом прицела*/
 @interface SpritesClassesLabelInfo : SKLabelNode
 @property (strong, nonatomic, readonly) SKLabelNode *LabelInfo;
 

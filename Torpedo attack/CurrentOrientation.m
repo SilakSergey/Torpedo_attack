@@ -8,29 +8,45 @@
 #import "CurrentOrientation.h"
 #import "Constants.h"
 
-@implementation CurrentOrientation
+@implementation CurrentOrientation{
+    
+    NSString *orientation;
+}
 
+/*Получение текущей ориентации экрана*/
 
 #pragma mark Текущая ориентация экрана
 -(NSString *)getOrientation{
-    NSString *orientation=PORTRAIT;
+   
     UIDeviceOrientation interfaceOrientation = [[UIDevice currentDevice] orientation];
 
     switch(interfaceOrientation)
     {
         case UIDeviceOrientationPortrait:
             orientation=PORTRAIT;
+            
         break;
 
         case UIDeviceOrientationLandscapeLeft:
             orientation=LANDSCAPE;
+            
+
         break;
         
         case UIDeviceOrientationLandscapeRight:
             orientation=LANDSCAPE;
+            
+            
+        break;
+            
+        case UIDeviceOrientationPortraitUpsideDown:
+            orientation=PORTRAIT;
+            
+            
         break;
             
         default:
+            
         break;
     };
     

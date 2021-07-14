@@ -29,7 +29,7 @@
 }
 
 
-
+//Загрузка основной сцены меню Настройки
 - (void)didMoveToView:(SKView *)view {
     // Setup your scene here
     
@@ -44,10 +44,14 @@
     
 }
 
+
+//Инициализация Класса Проверки ориентации
 -(void)orientation_init {
     currentOrientation = [[CurrentOrientation alloc] init];
 }
 
+
+//Настройки сцены. Установка слушателя на смену ориентации экрана.
 -(void)SceneSetting
 {
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
@@ -58,36 +62,38 @@
  }
 
 
-
+//Вызов метода смены позиций полей меню Настройки в зависимости от ориентации экрана.
 - (void) orientationChanged:(NSNotification *)note
 {
     [self createLabelSettings:currentOrientation.getOrientation];
 }
 
-
+//Создание фона меню Настройки
 -(void)createBackgroundSprite{
     texture = [SKTexture textureWithImageNamed:@"backMenuWithFon"];
-    //Создаем наш SKSpriteNode и инициализируем его. В качестве параметра передаем объект типа SKTexture, который мы создали выше.
+    
     BackgroundSprite = [SKSpriteNode spriteNodeWithTexture:texture];
     BackgroundSprite.size = self.frame.size; // Задаем размер.
-    BackgroundSprite.anchorPoint = CGPointMake(0.5, 0.5); //задаем начальную точку.
-    BackgroundSprite.name = @"BackgroundSprite";// задаем имя.
+    BackgroundSprite.anchorPoint = CGPointMake(0.5, 0.5);
+    BackgroundSprite.name = @"BackgroundSprite";
     BackgroundSprite.scene.scaleMode = SKSceneScaleModeAspectFill;
     BackgroundSprite.zPosition=-1;
-    [self addChild:BackgroundSprite];//добавляем наш объект на нашу сцену.
+    [self addChild:BackgroundSprite];
 }
-    -(void)createBackButtonSprite{
+//Создание кнопки Назад
+-(void)createBackButtonSprite{
     texture = [SKTexture textureWithImageNamed: NSLocalizedString( @"buttonBack", nil)];
     backButtonSprite = [SKSpriteNode spriteNodeWithTexture:texture];
     backButtonSprite.size =  CGSizeMake(MENU_BUTTON_WIDTH, MENU_BUTTON_HEIGHT);
-    backButtonSprite.anchorPoint = CGPointMake(0.5, 0.5); //задаем начальную точку.
+    backButtonSprite.anchorPoint = CGPointMake(0.5, 0.5);
     backButtonSprite.position = CGPointMake(CGRectGetMidX(self.frame), -self.frame.size.height/2+100);
-    backButtonSprite.name = @"menuBackButtonSprite";// задаем имя.
+    backButtonSprite.name = @"menuBackButtonSprite";
     backButtonSprite.scene.scaleMode = SKSceneScaleModeAspectFill;
     backButtonSprite.zPosition=0;
-    [self addChild:backButtonSprite];//добавляем наш объект на нашу сцену.
+    [self addChild:backButtonSprite];
 }
 
+//Метод размещения меток с описание настроек игры в зависимости от ориентации экрана и языка локализации. Для выравнивания по левому краю.
 -(void)createLabelSettings:(NSString*) orientation
 {
     [self removeAllLabels];
@@ -211,7 +217,7 @@
     [self addEffects];
     [self addHardMode];
 }
-
+//Удаляем все метки
 -(void)removeAllLabels
 {
     [LabelMenu removeFromParent];
@@ -220,7 +226,7 @@
     [LabelMenuHardMode removeFromParent];
 }
 
-
+//Переключатель включения-выключения музыки в игре
 -(void)addSound{
     
     [switcherMusicSprite removeFromParent];
@@ -231,17 +237,18 @@
         texture = [SKTexture textureWithImageNamed:@"onButton"];
     }
     
-    //Создаем наш SKSpriteNode и инициализируем его. В качестве параметра передаем объект типа SKTexture, который мы создали выше.
+    
     switcherMusicSprite = [SKSpriteNode spriteNodeWithTexture:texture];
     switcherMusicSprite.size = CGSizeMake(95, 50);
     switcherMusicSprite.position = CGPointMake(200, self.frame.size.height/2-35);
-    switcherMusicSprite.anchorPoint = CGPointMake(0.5, 0.5); //задаем начальную точку.
-    switcherMusicSprite.name = @"switcherMusicSprite";// задаем имя.
+    switcherMusicSprite.anchorPoint = CGPointMake(0.5, 0.5);
+    switcherMusicSprite.name = @"switcherMusicSprite";
     switcherMusicSprite.scene.scaleMode = SKSceneScaleModeAspectFill;
     switcherMusicSprite.zPosition=1;
-    [backButtonSprite addChild:switcherMusicSprite];//добавляем наш объект на нашу сцену.
+    [backButtonSprite addChild:switcherMusicSprite];
 }
 
+//Переключатель включения-выключения звуковых эффектов в игре
 -(void)addEffects{
     
     [switcherEffectsSprite removeFromParent];
@@ -252,18 +259,18 @@
         
         texture = [SKTexture textureWithImageNamed:@"onButton"];
     }
-    //Создаем наш SKSpriteNode и инициализируем его. В качестве параметра передаем объект типа SKTexture, который мы создали выше.
+    
     switcherEffectsSprite = [SKSpriteNode spriteNodeWithTexture:texture];
     switcherEffectsSprite.size = CGSizeMake(95, 50);
     switcherEffectsSprite.position = CGPointMake(200, self.frame.size.height/2-135);
-    switcherEffectsSprite.anchorPoint = CGPointMake(0.5, 0.5); //задаем начальную точку.
-    switcherEffectsSprite.name = @"switcherEffectsSprite";// задаем имя.
+    switcherEffectsSprite.anchorPoint = CGPointMake(0.5, 0.5);
+    switcherEffectsSprite.name = @"switcherEffectsSprite";
     switcherEffectsSprite.scene.scaleMode = SKSceneScaleModeAspectFill;
     switcherEffectsSprite.zPosition=1;
-    [backButtonSprite addChild:switcherEffectsSprite];//добавляем наш объект на нашу сцену.
+    [backButtonSprite addChild:switcherEffectsSprite];
 }
 
-
+//Переключатель режима - сложная игра
 -(void)addHardMode{
     
     [switcherHardModeSprite removeFromParent];
@@ -274,18 +281,18 @@
         
         texture = [SKTexture textureWithImageNamed:@"onButton"];
     }
-    //Создаем наш SKSpriteNode и инициализируем его. В качестве параметра передаем объект типа SKTexture, который мы создали выше.
+    
     switcherHardModeSprite = [SKSpriteNode spriteNodeWithTexture:texture];
     switcherHardModeSprite.size = CGSizeMake(95, 50);
     switcherHardModeSprite.position = CGPointMake(200, self.frame.size.height/2-235);
-    switcherHardModeSprite.anchorPoint = CGPointMake(0.5, 0.5); //задаем начальную точку.
-    switcherHardModeSprite.name = @"switcherHardMode";// задаем имя.
+    switcherHardModeSprite.anchorPoint = CGPointMake(0.5, 0.5);
+    switcherHardModeSprite.name = @"switcherHardMode";
     switcherHardModeSprite.scene.scaleMode = SKSceneScaleModeAspectFill;
     switcherHardModeSprite.zPosition=1;
-    [backButtonSprite addChild:switcherHardModeSprite];//добавляем наш объект на нашу сцену.
+    [backButtonSprite addChild:switcherHardModeSprite];
 }
 
-
+//Обработчик касания элементов настроек
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
  UITouch *touch = [touches anyObject];
@@ -365,12 +372,8 @@
         
         [self addHardMode];
     }
-    
-    
-    
-    
 }
-
+//Загрузка выхода в Главное меню
 -(void)loadMainMenu{
     
     // Load the SKScene from 'GameScene.sks'

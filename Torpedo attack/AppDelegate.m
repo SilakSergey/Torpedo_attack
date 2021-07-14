@@ -19,26 +19,6 @@
     // Override point for customization after application launch.
     
     
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:SOUNDBACKGROUND_KEY]){
-        
-        [[NSUserDefaults standardUserDefaults] setObject:@"ON" forKey:SOUNDBACKGROUND_KEY];
-        
-    }
-    
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:SOUNDEFFECTS_KEY]){
-        
-        [[NSUserDefaults standardUserDefaults] setObject:@"ON" forKey:SOUNDEFFECTS_KEY];
-        
-    }
-    
-    if (![[NSUserDefaults standardUserDefaults] objectForKey:HARD_KEY]){
-        
-        [[NSUserDefaults standardUserDefaults] setObject:@"OFF" forKey:HARD_KEY];
-        
-    }
-    
-    
-        
     //49,199,499,999,1999
     //0,49,99,149,199,299,399,499,749,999,1999
     
@@ -50,8 +30,19 @@
   //  [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"beenLaunched"];
   
     
-    
+    /*Первоначальные настройки игры*/
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"beenLaunched"]) {
+        if (![[NSUserDefaults standardUserDefaults] objectForKey:SOUNDBACKGROUND_KEY]){
+            [[NSUserDefaults standardUserDefaults] setObject:@"ON" forKey:SOUNDBACKGROUND_KEY];
+        }
+        
+        if (![[NSUserDefaults standardUserDefaults] objectForKey:SOUNDEFFECTS_KEY]){
+            [[NSUserDefaults standardUserDefaults] setObject:@"ON" forKey:SOUNDEFFECTS_KEY];
+        }
+        
+        if (![[NSUserDefaults standardUserDefaults] objectForKey:HARD_KEY]){
+            [[NSUserDefaults standardUserDefaults] setObject:@"OFF" forKey:HARD_KEY];
+        }
         
         [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:DESTROYED_KEY];
         

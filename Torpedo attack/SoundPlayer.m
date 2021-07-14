@@ -4,6 +4,8 @@
 
 static SoundPlayer *sharedAudioPlayer;
 
+
+/*Подготовка плеера*/
 + (SoundPlayer *)sharedAudioPlayer {
     if (sharedAudioPlayer == nil) {
         sharedAudioPlayer = [[SoundPlayer alloc] init];
@@ -20,9 +22,11 @@ static SoundPlayer *sharedAudioPlayer;
 }
 
 
-
+/*Инициализация плеера*/
 - (void)initAudioPlayers {
     
+    
+    /*Подготовка фоновой музыки*/
     NSURL *fileURL = [NSURL fileURLWithPath:[[NSBundle mainBundle]
                                          pathForResource:@"backgroundSound"
                                          ofType:@"mp3"]];
@@ -33,7 +37,7 @@ static SoundPlayer *sharedAudioPlayer;
     [self.playSound prepareToPlay];
     
     
-    
+    /*Подготовка звука запуска торпеды*/
     NSURL *fileURL_Launch = [NSURL fileURLWithPath:[[NSBundle mainBundle]
                                          pathForResource:@"launch"
                                          ofType:@"mp3"]];
@@ -43,6 +47,7 @@ static SoundPlayer *sharedAudioPlayer;
     self.playLaunch.numberOfLoops = 0;
     [self.playLaunch prepareToPlay];
 
+    /*Подготовка звука взрыва торпеды*/
     NSURL *fileURL_Explosion = [NSURL fileURLWithPath:[[NSBundle mainBundle]
                                              pathForResource:@"explosion"
                                              ofType:@"mp3"]];

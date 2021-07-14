@@ -44,6 +44,16 @@
     float BOAT_WIDTH_GLOBAL;
 }
 
+- (void)viewWillLayoutSubviews
+{
+    
+    
+    
+    
+    
+}
+
+
 
 - (void)didMoveToView:(SKView *)view {
 
@@ -367,6 +377,8 @@
 #pragma mark CHANGE SPRITES FRAME ORIENTATION
 
 -(void)cspBinokle:(NSString *)orientation {
+    
+  
     
     if ([orientation isEqualToString:PORTRAIT]){
         
@@ -946,17 +958,20 @@ if ([orientation isEqualToString:PORTRAIT]){
 #pragma mark Смена ориентации - меняем позиции sprites
 - (void) orientationChanged:(NSNotification *)note
 {
-    [self cspBinokle:[currentOrientation getOrientation]];
-    [self cspLabelInfo:[currentOrientation getOrientation]];
-    [self cspLabelDetonation:[currentOrientation getOrientation]];
-    [self cspLabelScoresPhysics:[currentOrientation getOrientation]];
-    [self cspboatSprite:[currentOrientation getOrientation]];
-    [self cspmovePointerSprite:[currentOrientation getOrientation]];
-    [self cspmenuButtonSprite:[currentOrientation getOrientation]];
-    [self cspstrikePointerSprite:[currentOrientation getOrientation]];
-    [self cspdestroyPointerSprite:[currentOrientation getOrientation]];
-    [self csplaunchButtonSprite:[currentOrientation getOrientation]];
-    [self csplaunchButtonSpriteOFF:[currentOrientation getOrientation]];
+    
+    NSString *orientation =  [currentOrientation getOrientation];
+    NSLog(@"orientation: %@" ,orientation);
+    [self cspBinokle:orientation];
+    [self cspLabelInfo:orientation];
+    [self cspLabelDetonation:orientation];
+    [self cspLabelScoresPhysics:orientation];
+    [self cspboatSprite:orientation];
+    [self cspmovePointerSprite:orientation];
+    [self cspmenuButtonSprite:orientation];
+    [self cspstrikePointerSprite:orientation];
+    [self cspdestroyPointerSprite:orientation];
+    [self csplaunchButtonSprite:orientation];
+    [self csplaunchButtonSpriteOFF:orientation];
 }
 
 
@@ -1011,9 +1026,7 @@ if ([orientation isEqualToString:PORTRAIT]){
 -(void)loadNotificationChangeOrientation{
     
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-    [[NSNotificationCenter defaultCenter]
-       addObserver:self selector:@selector(orientationChanged:)
-       name:UIDeviceOrientationDidChangeNotification
-       object:[UIDevice currentDevice]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:[UIDevice currentDevice]];
 }
+
 @end

@@ -22,13 +22,12 @@
     SKSpriteNode *menuPlayButtonSprite;
     SKSpriteNode *menuSettingsButtonSprite;
     SKSpriteNode *menuAboutButtonSprite;
-    
     SKSpriteNode *menuRatingButtonSprite;
     SKTexture* texture;
-    
     CurrentOrientation *currentOrientation;
 }
 
+/*Метод загрузки основного меню игры*/
 - (void)didMoveToView:(SKView *)view {
     // Setup your scene here
     
@@ -47,6 +46,7 @@
     [self changeOrientationGameName:currentOrientation.getOrientation];
 }
 
+/*Установка слушателя на смену ориентации экрана для поворота элементов главного меню*/
 -(void)sceneSetting
 {
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
@@ -62,15 +62,14 @@
  }
 
 
-
+/*Метод смены месторасположения элементов главного меню в зависимости от ориентации экрана*/
 - (void)viewWillTransition {
 
     [self changeOrientationGameName:currentOrientation.getOrientation];
     
 }
-
+/*Обнуляем количество попаданий и потопленных кораблей*/
 -(void)clearStrike{
-    //обнуляем количество попаданий и потопленных кораблей
     [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:STRIKE_KEY];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -85,7 +84,7 @@
     }
 }
 
-
+//Метод создания и размещение Основного фона меню
 -(void)createBackgroundSprite {
     texture = [SKTexture textureWithImageNamed:@"backMenu"];
     BackgroundSprite = [SKSpriteNode spriteNodeWithTexture:texture];
@@ -97,6 +96,7 @@
     [self addChild:BackgroundSprite];
 }
 
+//Метод создания и размещение кнопки Играть
 -(void)createMenuPlayButtonSprite{
     texture = [SKTexture textureWithImageNamed:NSLocalizedString(@"buttonPlay", nil)];
     menuPlayButtonSprite = [SKSpriteNode spriteNodeWithTexture:texture];
@@ -110,6 +110,7 @@
     
 }
 
+//Метод создания и размещение кнопки Настройки
 -(void)createMenuSettingsButtonSprite{
     texture = [SKTexture textureWithImageNamed:NSLocalizedString(@"buttonSettings", nil)];
     menuSettingsButtonSprite = [SKSpriteNode spriteNodeWithTexture:texture];
@@ -122,8 +123,8 @@
     [self addChild:menuSettingsButtonSprite];
 }
 
+//Метод создания и размещение кнопки Рейтинг
 -(void)createMenuRatingButtonSprite{
-    
     texture = [SKTexture textureWithImageNamed:NSLocalizedString(@"buttonRating", nil)];
     menuRatingButtonSprite = [SKSpriteNode spriteNodeWithTexture:texture];
     menuRatingButtonSprite.size =  CGSizeMake(MENU_BUTTON_WIDTH, MENU_BUTTON_HEIGHT);
@@ -136,6 +137,7 @@
     
 }
     
+//Метод создания и размещение кнопки О игре
 -(void)createMenuAboutButtonSprite{
     texture = [SKTexture textureWithImageNamed:NSLocalizedString(@"buttonAbout", nil)];
     menuAboutButtonSprite = [SKSpriteNode spriteNodeWithTexture:texture];
@@ -149,6 +151,7 @@
 
 }
 
+//Метод меняет позицию и размер Названия игры в меню в зависимости от ориентации экрана
 -(void)changeOrientationGameName: (NSString *)orientation {
     
     [self gameNameRemove];
@@ -172,10 +175,13 @@
     [BackgroundSprite addChild:gameNameSprite];
 }
 
+//Метод удаления Названия игры в меню
 -(void)gameNameRemove {
     [gameNameSprite removeFromParent];
 }
 
+
+//Метод обрабатывает касания кнопок в Главном меню
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 
  UITouch *touch = [touches anyObject];
@@ -215,7 +221,7 @@
 }
 
 
-
+//Загрузка сцены в соответствии с нажатой кнопкой меню.
 -(void)loadScene:(NSString*)nameScene{
     GameScene *scene = (GameScene *)[SKScene nodeWithFileNamed:nameScene];
     scene.scaleMode = SKSceneScaleModeAspectFill;

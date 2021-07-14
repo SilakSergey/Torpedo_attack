@@ -29,15 +29,14 @@
     return self;
 }
 
-
+/*Создаём небо. Используем статичное изображение sky.png */
 -(void)CreateBackgroundSprite
 {
     SKTexture* TextureBackgroundSprite = [SKTexture textureWithImageNamed:@"sky"];
-    //Создаем наш SKSpriteNode и инициализируем его. В качестве параметра передаем объект типа SKTexture, который мы создали выше.
     BackgroundSprite = [SKSpriteNode spriteNodeWithTexture:TextureBackgroundSprite];
     BackgroundSprite.size = self.frame.size;
-    BackgroundSprite.anchorPoint = CGPointMake(0.5, 0.5); //задаем начальную точку.
-    BackgroundSprite.name = @"BackgroundSprite";// задаем имя.
+    BackgroundSprite.anchorPoint = CGPointMake(0.5, 0.5);
+    BackgroundSprite.name = @"BackgroundSprite";
     BackgroundSprite.scene.scaleMode = SKSceneScaleModeAspectFill;
     BackgroundSprite.zPosition=1;
 }
@@ -46,7 +45,7 @@
 
 
 
-//-------NEW INTERFACE------------//
+/*Создаём море (с анимацией0. Используем статичные изображения от 1.png до 119.png.  */
 @implementation SpritesClassesWater{
     
     SKSpriteNode *BackgroundWaterSprite;
@@ -95,7 +94,7 @@
 
 
 
-//-------NEW INTERFACE------------//
+/*Создаём левую скалу. Используем статичное изображение. Скала имеет слой больше чем слой корабля, чтобы возникало ощущение, что корабль скрылся за скалой.*/
 @implementation SpritesClassesRockLeft{
     
     SKSpriteNode *RockSpriteLeft;
@@ -122,14 +121,11 @@
 
 -(void)CreateRockSpriteLeft
 {
-    //--------------------------------------------------------------
     SKTexture* TextureRockSpriteLeft = [SKTexture textureWithImageNamed:@"rockLeft"];
-    //Создаем наш SKSpriteNode и инициализируем его. В качестве параметра передаем объект типа SKTexture, который мы создали выше.
     RockSpriteLeft = [SKSpriteNode spriteNodeWithTexture:TextureRockSpriteLeft];
     RockSpriteLeft.size = CGSizeMake(ROCK_WIDTH, ROCK_HEIGHT);
-    
-    RockSpriteLeft.anchorPoint = CGPointMake(0.5, 0.5); //задаем начальную точку.
-    RockSpriteLeft.name = @"RockSpriteLeft";// задаем имя.
+    RockSpriteLeft.anchorPoint = CGPointMake(0.5, 0.5);
+    RockSpriteLeft.name = @"RockSpriteLeft";
     RockSpriteLeft.scene.scaleMode = SKSceneScaleModeAspectFit;
     RockSpriteLeft.zPosition=5;
 }
@@ -139,7 +135,7 @@
 
 
 
-//-------NEW INTERFACE------------//
+/*Создаём правую скалу. Используем статичное изображение. Скала имеет слой больше чем слой корабля, чтобы возникало ощущение, что корабль скрылся за скалой.*/
 @implementation SpritesClassesRockRight{
     
     SKSpriteNode *RockSpriteRight;
@@ -180,7 +176,7 @@
 
 
 
-//-------NEW INTERFACE------------//
+/*Создаём монокль. Используем статичное изображение. Имеет слой больше чем слой корабля, скал и неба с морем.*/
 @implementation SpritesClassesBinokleSprite{
     
     SKSpriteNode *binokleSprite;
@@ -219,7 +215,7 @@
 @end
 
 
-//-------NEW INTERFACE------------//
+/*Создаём кнопку Menu в игре*/
 @implementation SpritesClassesMenuButtonSprite{
     
     SKSpriteNode *menuButtonSprite;
@@ -249,19 +245,17 @@
    
     SKTexture *Texture = [SKTexture textureWithImageNamed:NSLocalizedString(@"buttonMenu", @"Menu button on GameScene")];
     menuButtonSprite = [SKSpriteNode spriteNodeWithTexture:Texture];
-    menuButtonSprite.anchorPoint = CGPointMake(0, 0); //задаем начальную точку.
-    menuButtonSprite.name = @"menuButtonSprite";// задаем имя.
+    menuButtonSprite.anchorPoint = CGPointMake(0, 0);
+    menuButtonSprite.name = @"menuButtonSprite";
     menuButtonSprite.scene.scaleMode = SKSceneScaleModeAspectFill;
     menuButtonSprite.zPosition=11;
-    
-    
 }
 
 @end
 
 
 
-//-------NEW INTERFACE------------//
+/*Создаем подсказку к метке Отсчета времени попадания торпеды*/
 @implementation SpritesClassesStrikePointerSprite{
     
     SKSpriteNode *strikePointerSprite;
@@ -282,10 +276,6 @@
     
     return self;
 }
-
-
-
-
 #pragma mark CreateStrikePointerSprite
 
 -(void)CreateStrikePointerSprite: (NSString *)orientation{
@@ -307,7 +297,7 @@
 
 
 
-//-------NEW INTERFACE------------//
+/*Создаём подсказку к метке Уничтожено кораблей*/
 @implementation SpritesClassesDestroyPointerSprite{
     
     SKSpriteNode *destroyPointerSprite;
@@ -335,22 +325,18 @@
 #pragma mark CreateDestroyPointerSprite
 
 -(void)CreateDestroyPointerSprite: (NSString *)orientation{
-
     SKTexture *Texture = [SKTexture textureWithImageNamed:NSLocalizedString(@"destroyPointer", @"Destroyed ships on GameScene") ];
-    //Создаем наш SKSpriteNode и инициализируем его. В качестве параметра передаем объект типа SKTexture, который мы создали выше.
     destroyPointerSprite = [SKSpriteNode spriteNodeWithTexture:Texture];
-    destroyPointerSprite.anchorPoint = CGPointMake(0.5, 0.5); //задаем начальную точку.
-    destroyPointerSprite.name = @"destroyPointerSprite";// задаем имя.
+    destroyPointerSprite.anchorPoint = CGPointMake(0.5, 0.5);
+    destroyPointerSprite.name = @"destroyPointerSprite";
     destroyPointerSprite.scene.scaleMode = SKSceneScaleModeAspectFill;
     destroyPointerSprite.zPosition=11;
 }
-
-
 @end
 
 
 
-//-------NEW INTERFACE------------//
+/*Создаём подсказку о дивжении окуляра*/
 @implementation SpritesClassesMovePointerSprite{
     
     SKSpriteNode *movePointerSprite;
@@ -393,7 +379,7 @@
 @end
 
 
-//-------NEW INTERFACE------------//
+/*Создаем метку вывода информации о Потопленных кораблях*/
 @implementation SpritesClassesLabelScoresPhysics{
     
     SKLabelNode *LabelScoresPhysics;
@@ -468,7 +454,7 @@
 
 
 
-//-------NEW INTERFACE------------//
+/*Создаём метку с информацией о псевдоазимуте*/
 @implementation SpritesClassesLabelInfo{
     
     SKLabelNode *LabelInfo;
